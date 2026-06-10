@@ -14,7 +14,6 @@ Accurate bacterial species identification is essential for the diagnosis and tre
 ├── models/           # Trained models
 ├── networks/         # Network architectures, optimization and training code
 ├── ood/              # OOD detection method implementations
-├── output/           # Generated outputs, including reports
 ├── utils/            # Utility/helper functions
 ├── main.py
 ├── modules.txt       # HPC module list
