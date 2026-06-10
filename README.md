@@ -16,6 +16,7 @@ Accurate bacterial species identification is essential for the diagnosis and tre
 ├── ood/              # OOD detection method implementations
 ├── utils/            # Utility/helper functions
 ├── main.py
+├── run_myjob.sh      # Example job script for the Accelgor HPC UGent cluster
 ├── modules.txt       # HPC module list
 └── requirements.txt  # Python dependencies
 ```
