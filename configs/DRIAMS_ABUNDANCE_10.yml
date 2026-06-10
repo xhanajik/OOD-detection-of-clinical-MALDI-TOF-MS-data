@@ -1,0 +1,31 @@
+main:
+  name: "DRIAMS_experiment_ABUNDANCE_10"
+  write_interval: "epoch"
+  output_dir: "./output/driams_abundance_10"
+  verbose: true
+  cpus: 2
+  seed: 24
+
+dataset:
+  name: "DRIAMS"
+  data_dir: "./data/"
+  data_file: "DRIAMS_filt.h5"
+  
+  # Class filtering
+  min_samples_per_class: 30
+  abundance_percentage: 10
+  
+  # Data splitting
+  batch_size: 512
+  validation_size: 0.2
+  test_size: 0.2
+
+ood:
+  train: False
+  train_ood: False
+  setup: "abundance"  # Options: "mix", "abundance", "hierarchy"
+  hierarchy_level: None
+  hierarchy_leaveout: None
+  method: "msp_maha" # Options: "knn", "maha", "msp", "logitnorm", "energy", "energy_maha" "deep_ensemble", "gmm"
+  pretrained_model_path: "models/abund_10_driams_trial_6_TinyWideNN.pth"
+  knn_variant: "embedding" # Options: "raw", "pca", "embedding"

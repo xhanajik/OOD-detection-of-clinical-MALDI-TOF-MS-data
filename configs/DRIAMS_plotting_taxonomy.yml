@@ -1,0 +1,30 @@
+main:
+  name: "DRIAMS_all"
+  write_interval: "epoch"
+  output_dir: "./output/driams_plotting"
+  verbose: true
+  cpus: 2
+  seed: 24
+
+dataset:
+  name: "DRIAMS"
+  data_dir: "./data/"
+  data_file: "DRIAMS_filt.h5"
+  
+  # Class filtering
+  min_samples_per_class: 30
+  abundance_percentage: 0
+  
+  # Data splitting
+  batch_size: 512
+  validation_size: 0.2
+  test_size: 0.2
+
+ood:
+  train: False
+  train_ood: False
+  setup: "hierarchy"  # Options: "mix", "abundance", "hierarchy"
+  hierarchy_level: "y"
+  hierarchy_leaveout: []
+  method: "knn" # Options: "knn", "maha", "msp", "logitnorm", "energy", "energy_maha" "deep_ensemble", "gmm"
+  network_file: None

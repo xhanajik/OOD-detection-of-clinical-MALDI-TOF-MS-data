@@ -1,0 +1,31 @@
+main:
+  name: "DRIAMS_experiment_HIERARCHY_genus"
+  write_interval: "epoch"
+  output_dir: "./output/driams_hierarchy_genus"
+  verbose: true
+  cpus: 2
+  seed: 24
+
+dataset:
+  name: "DRIAMS"
+  data_dir: "./data/"
+  data_file: "DRIAMS_filt.h5"
+  
+  # Class filtering
+  min_samples_per_class: 30
+  abundance_percentage: None
+  
+  # Data splitting
+  batch_size: 512
+  validation_size: 0.2
+  test_size: 0.2
+
+ood:
+  train: False
+  train_ood: False
+  setup: "hierarchy"  # Options: "mix", "abundance", "hierarchy"
+  hierarchy_level: "genus" # Options: "y" (species level), "genus", "family"
+  hierarchy_leaveout: ["Enterococcus", "Streptococcus", "Klebsiella"]
+  method: "knn" # Options: "knn", "maha", "msp", "logitnorm", "energy", "energy_maha" "deep_ensemble", "gmm"
+  pretrained_model_path: "./models/driams_hierarchy_genus_trial_14_TinyWideNN.pth"
+  knn_variant: "embedding" # Options: "raw", "pca", "embedding"
